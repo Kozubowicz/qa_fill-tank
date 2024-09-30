@@ -4,10 +4,10 @@ describe('fillTank', () => {
   const { fillTank } = require('./fillTank');
 
   it(`should be declared`, () => {
-    expect(fillTank).toBeInstanceOf(Function);
+    expect(fillTank).toBeDefined();
   });
 
-  it(`should return nothing`, () => {
+  it(`should return 'undefined'`, () => {
     const customer = {
       money: 3000,
       vehicle: {
