@@ -3,10 +3,6 @@
 describe('fillTank', () => {
   const { fillTank } = require('./fillTank');
 
-  it('should ', () => {});
-
-  // write tests here
-
   it(`should be declared`, () => {
     expect(fillTank).toBeInstanceOf(Function);
   });
@@ -32,7 +28,9 @@ describe('fillTank', () => {
       },
     };
 
-    fillTank(customer, 5);
+    const fuelPrice = 5;
+
+    fillTank(customer, fuelPrice);
 
     expect(customer).toEqual({
       money: 2850,
@@ -52,7 +50,10 @@ describe('fillTank', () => {
       },
     };
 
-    fillTank(customer, 5, 50);
+    const fuelPrice = 5;
+    const fuelAmount = 50;
+
+    fillTank(customer, fuelPrice, fuelAmount);
 
     expect(customer).toEqual({
       money: 2850,
@@ -72,7 +73,10 @@ describe('fillTank', () => {
       },
     };
 
-    fillTank(customer, 5, 20);
+    const fuelPrice = 5;
+    const fuelAmount = 20;
+
+    fillTank(customer, fuelPrice, fuelAmount);
 
     expect(customer).toEqual({
       money: 0,
@@ -92,7 +96,10 @@ describe('fillTank', () => {
       },
     };
 
-    fillTank(customer, 5, 1);
+    const fuelPrice = 5;
+    const fuelAmount = 1;
+
+    fillTank(customer, fuelPrice, fuelAmount);
 
     expect(customer).toEqual({
       money: 3000,
@@ -113,7 +120,10 @@ describe('fillTank', () => {
       },
     };
 
-    fillTank(customer, 5, 4.67);
+    const fuelPrice = 5;
+    const fuelAmount = 4.67;
+
+    fillTank(customer, fuelPrice, fuelAmount);
 
     expect(customer).toEqual({
       money: 2977,
@@ -134,7 +144,10 @@ describe('fillTank', () => {
       },
     };
 
-    fillTank(customer, 5.12, 4.6);
+    const fuelPrice = 5.12;
+    const fuelAmount = 4.6;
+
+    fillTank(customer, fuelPrice, fuelAmount);
 
     expect(customer).toEqual({
       money: 2976.45,
