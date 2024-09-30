@@ -110,32 +110,7 @@ describe('fillTank', () => {
     });
   });
 
-  it(`should round the poured amount by discarding
-     number to the tenth part`, () => {
-    const customer = {
-      money: 3000,
-      vehicle: {
-        maxTankCapacity: 40,
-        fuelRemains: 8,
-      },
-    };
-
-    const fuelPrice = 5;
-    const fuelAmount = 4.67;
-
-    fillTank(customer, fuelPrice, fuelAmount);
-
-    expect(customer).toEqual({
-      money: 2977,
-      vehicle: {
-        maxTankCapacity: 40,
-        fuelRemains: 12.6,
-      },
-    });
-  });
-
-  it(`should round the price of the purchased fuel
-     the to the nearest hundredth part.`, () => {
+  it(`should correctly round poured amount, and price`, () => {
     const customer = {
       money: 3000,
       vehicle: {
@@ -154,6 +129,29 @@ describe('fillTank', () => {
       vehicle: {
         maxTankCapacity: 40,
         fuelRemains: 12.6,
+      },
+    });
+  });
+
+  it(`should done nothing with negative values for price or amount`, () => {
+    const customer = {
+      money: 3000,
+      vehicle: {
+        maxTankCapacity: 40,
+        fuelRemains: 8,
+      },
+    };
+
+    const fuelPrice = -5;
+    const fuelAmount = -4;
+
+    fillTank(customer, fuelPrice, fuelAmount);
+
+    expect(customer).toEqual({
+      money: 3000,
+      vehicle: {
+        maxTankCapacity: 40,
+        fuelRemains: 8,
       },
     });
   });
